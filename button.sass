@@ -1,0 +1,129 @@
+@import './theme.sass'
+@mixin flex-center()
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin button-color-style($bgc:white,$bc:transparent,$c:black)
+    background-color: $bgc
+    border-color: $bc
+    color: $c
+
+$button-blue: #132547
+$button-gray: #ccc
+$button-yellow: #ffdc00
+$button-orange: #f26e28
+
+body
+    width: 100vw
+    display: flex
+    align-items: center
+    justify-content: center
+
+.container
+    flex-wrap: wrap
+    flex-direction: row
+    @include flex-center
+
+.side
+    flex-direction: column
+    @include flex-center
+
+.main
+    flex-direction: column
+    @include flex-center
+
+.orange.small-blue
+    background-color: $button-orange
+
+button
+    width: 20rem
+    border-width: 1px
+    color: #363636
+    cursor: pointer
+    justify-content: space-evenly
+    text-align: center
+    white-space: nowrap
+    align-items: center
+    border: 1px solid transparent
+    border-radius: 4px
+    box-shadow: 0px 1px 5px $button-blue
+    display: inline-flex
+    font-size: 2rem
+    font-weight: bold
+    height: 2.5em
+    line-height: 1.5
+    position: relative
+    vertical-align: top
+    margin: 0 .5rem .5rem 0
+
+button i
+    @include flex-center
+
+button span
+    flex: 1
+    @include text-crop
+
+button.yellow
+    @include button-color-style($button-yellow,transparent,$button-blue)
+    i
+        font-size: 2em
+    span
+        font-size: 2em
+        max-width: 3.5em
+
+button.blue
+    height: 2em
+    @include button-color-style($button-blue,transparent,#fff)
+    i
+        font-size: 1.5em
+    span
+        max-width: 6.5em
+
+button.small-blue
+    height: 2em
+    font-size: 1.5em
+    @include button-color-style($button-blue,transparent,#fff)
+    i
+        font-size: 1.5em
+    span
+        max-width: 80%
+
+button.white
+    height: 2em
+    font-size: 1.5rem
+    border-radius: 3rem
+    @include button-color-style(#fff,$button-blue,$button-blue)
+    i
+        font-size: 2rem
+    span
+        max-width: 80%
+
+@mixin h-style($color,$background-color,)
+    width: 23em
+    height: 2em
+    color: $color
+    font-size: 1.5rem
+    background-color: $background-color
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    i
+        margin: 0 .3em
+
+h1
+    border-radius: 5px
+    @include h-style($button-yellow,$button-blue)
+h2
+    border-radius: 5px
+    @include h-style(white,$button-blue)
+h3
+    border: 1px solid $button-blue
+    border-radius: 30px
+    @include h-style($button-blue,$button-gray)
+h4
+    border: 1px solid $button-blue
+    border-radius: 30px
+    @include h-style($button-blue,transparent)
+h5
+    @include h-style($button-blue,transparent)
